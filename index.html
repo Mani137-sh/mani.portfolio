@@ -1,58 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mani Rani | Ph.D. Research Scholar</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
 
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
 scroll-behavior:smooth;
+
 }
 
 body{
+
 background:#050816;
 color:white;
 overflow-x:hidden;
+
 }
 
-body::-webkit-scrollbar{
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
 width:8px;
+
 }
 
-body::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb{
+
 background:#38bdf8;
-border-radius:10px;
+border-radius:20px;
+
 }
+
+/* Background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:700px;
+height:700px;
+
+background:radial-gradient(circle,#2563eb33,transparent 70%);
+
+left:-250px;
+top:-250px;
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:700px;
+height:700px;
+
+background:radial-gradient(circle,#7c3aed22,transparent 70%);
+
+right:-250px;
+bottom:-250px;
+
+z-index:-2;
+
+}
+
+/* Navbar */
 
 nav{
 
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
-padding:22px 8%;
+
+padding:20px 8%;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
 background:rgba(5,8,22,.75);
-backdrop-filter:blur(20px);
+
+backdrop-filter:blur(18px);
+
 z-index:1000;
+
+border-bottom:1px solid rgba(255,255,255,.08);
 
 }
 
 .logo{
 
-font-size:28px;
+font-size:32px;
+
 font-weight:700;
+
 color:#38bdf8;
+
 letter-spacing:2px;
 
 }
@@ -60,17 +140,43 @@ letter-spacing:2px;
 nav ul{
 
 display:flex;
+
 list-style:none;
-gap:35px;
+
+gap:40px;
 
 }
 
 nav ul li a{
 
-text-decoration:none;
 color:white;
+
+text-decoration:none;
+
 font-size:15px;
-transition:.3s;
+
+transition:.4s;
+
+position:relative;
+
+}
+
+nav ul li a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+
+height:2px;
+
+background:#38bdf8;
+
+transition:.4s;
 
 }
 
@@ -80,79 +186,111 @@ color:#38bdf8;
 
 }
 
+nav ul li a:hover::after{
+
+width:100%;
+
+}
+
+/* Hero */
+
 .hero{
+
+width:100%;
 
 min-height:100vh;
 
+padding:130px 8% 80px;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
 
-padding:120px 8%;
+gap:80px;
 
 }
 
-.left{
+.hero-text{
 
-width:55%;
+flex:1;
 
 }
 
-.left h3{
+.hero-text span{
 
-font-size:20px;
-font-weight:400;
 color:#38bdf8;
-margin-bottom:15px;
-
-}
-
-.left h1{
-
-font-size:68px;
-line-height:75px;
-margin-bottom:20px;
-
-}
-
-.left h2{
-
-font-size:32px;
-font-weight:500;
-margin-bottom:20px;
-color:#d1d5db;
-
-}
-
-.left p{
 
 font-size:18px;
-line-height:32px;
-color:#9ca3af;
+
+font-weight:500;
+
+}
+
+.hero-text h1{
+
+font-size:74px;
+
+line-height:82px;
+
+margin-top:15px;
+
+margin-bottom:15px;
+
+font-weight:800;
+
+}
+
+.hero-text h2{
+
+font-size:34px;
+
+font-weight:500;
+
+color:#cbd5e1;
+
+margin-bottom:20px;
+
+}
+
+.hero-text p{
+
+font-size:18px;
+
+line-height:34px;
+
+color:#94a3b8;
+
+max-width:650px;
+
 margin-bottom:35px;
 
 }
 
-.buttons{
+.button-group{
 
 display:flex;
+
 gap:20px;
 
 }
 
 .btn{
 
-padding:14px 34px;
+display:inline-block;
+
+padding:15px 34px;
 
 background:#38bdf8;
 
-border-radius:8px;
-
-text-decoration:none;
-
-color:#000;
+color:black;
 
 font-weight:600;
+
+border-radius:10px;
+
+text-decoration:none;
 
 transition:.4s;
 
@@ -160,56 +298,71 @@ transition:.4s;
 
 .btn:hover{
 
-transform:translateY(-5px);
+transform:translateY(-6px);
+
+box-shadow:0 15px 30px rgba(56,189,248,.35);
 
 }
 
-.btn2{
+.btn-outline{
 
 background:transparent;
-color:white;
+
 border:2px solid #38bdf8;
+
+color:white;
 
 }
 
-.btn2:hover{
+.btn-outline:hover{
 
 background:#38bdf8;
+
 color:black;
 
 }
 
-.right{
+/* Image */
 
-width:40%;
+.hero-image{
+
+flex:1;
 
 display:flex;
 
 justify-content:center;
 
+align-items:center;
+
 }
 
 .circle{
 
-width:360px;
-height:360px;
+width:390px;
+
+height:390px;
 
 border-radius:50%;
 
-background:linear-gradient(135deg,#38bdf8,#7c3aed);
-
 padding:8px;
 
-animation:float 4s ease-in-out infinite;
+background:linear-gradient(135deg,#38bdf8,#7c3aed);
+
+animation:float 5s ease-in-out infinite;
 
 }
 
 .circle img{
 
 width:100%;
+
 height:100%;
+
 border-radius:50%;
+
 object-fit:cover;
+
+background:#111827;
 
 }
 
@@ -217,43 +370,123 @@ object-fit:cover;
 
 0%{
 
-transform:translateY(0px);
+transform:translateY(0);
 
 }
 
 50%{
 
-transform:translateY(-20px);
+transform:translateY(-18px);
 
 }
 
 100%{
 
-transform:translateY(0px);
+transform:translateY(0);
 
 }
 
 }
 
-.about{
+/* Stats */
 
-padding:100px 8%;
+.stats{
+
+padding:20px 8% 80px;
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:25px;
 
 }
 
-.title{
+.stat{
+
+background:#111827;
+
+padding:35px;
+
+border-radius:18px;
+
+text-align:center;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+.stat:hover{
+
+transform:translateY(-10px);
+
+background:#172554;
+
+}
+
+.stat h2{
 
 font-size:42px;
 
-margin-bottom:50px;
+color:#38bdf8;
+
+margin-bottom:10px;
+
+}
+
+.stat p{
+
+color:#cbd5e1;
+
+}
+
+/* About */
+
+.about{
+
+padding:120px 8%;
+
+}
+
+.section-title{
+
+font-size:46px;
+
+margin-bottom:60px;
 
 text-align:center;
 
 color:#38bdf8;
 
+position:relative;
+
 }
 
-.about-container{
+.section-title::after{
+
+content:"";
+
+position:absolute;
+
+width:90px;
+
+height:4px;
+
+background:#38bdf8;
+
+left:50%;
+
+transform:translateX(-50%);
+
+bottom:-15px;
+
+border-radius:10px;
+
+}
+
+.about-grid{
 
 display:grid;
 
@@ -267,11 +500,11 @@ gap:40px;
 
 background:#111827;
 
-padding:35px;
+padding:45px;
 
-border-radius:20px;
+border-radius:22px;
 
-border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.06);
 
 transition:.4s;
 
@@ -285,15 +518,15 @@ transform:translateY(-10px);
 
 .about-card p{
 
-line-height:32px;
-
-color:#d1d5db;
+line-height:34px;
 
 font-size:17px;
 
+color:#d1d5db;
+
 }
 
-.info{
+.quick-info{
 
 display:grid;
 
@@ -305,19 +538,27 @@ gap:20px;
 
 background:#111827;
 
-padding:22px;
-
-border-radius:15px;
+padding:25px;
 
 border-left:5px solid #38bdf8;
 
+border-radius:15px;
+
+transition:.4s;
+
 }
 
-.info-box h4{
+.info-box:hover{
 
-margin-bottom:8px;
+transform:translateX(10px);
+
+}
+
+.info-box h3{
 
 color:#38bdf8;
+
+margin-bottom:10px;
 
 }
 
@@ -325,99 +566,53 @@ color:#38bdf8;
 
 color:#d1d5db;
 
+line-height:28px;
+
 font-size:15px;
 
 }
 
-.skills{
+/* Responsive */
 
-padding:100px 8%;
-
-}
-
-.skill-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-}
-
-.skill-card{
-
-background:#111827;
-
-padding:30px;
-
-border-radius:15px;
-
-transition:.4s;
-
-text-align:center;
-
-}
-
-.skill-card:hover{
-
-transform:translateY(-10px);
-
-background:#172554;
-
-}
-
-.skill-card h3{
-
-margin-bottom:20px;
-
-color:#38bdf8;
-
-}
-
-.skill-card ul{
-
-list-style:none;
-
-}
-
-.skill-card ul li{
-
-margin:12px 0;
-
-color:#d1d5db;
-
-}
-
-@media(max-width:900px){
+@media(max-width:1000px){
 
 .hero{
 
 flex-direction:column-reverse;
+
 text-align:center;
 
 }
 
-.left,.right{
+.hero-text h1{
 
-width:100%;
+font-size:55px;
 
-}
-
-.left{
-
-margin-top:50px;
+line-height:60px;
 
 }
 
-.left h1{
+.hero-text h2{
 
-font-size:48px;
-line-height:55px;
+font-size:26px;
 
 }
 
-.about-container{
+.circle{
+
+width:280px;
+
+height:280px;
+
+}
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.about-grid{
 
 grid-template-columns:1fr;
 
@@ -429,10 +624,9 @@ display:none;
 
 }
 
-.circle{
+.button-group{
 
-width:280px;
-height:280px;
+justify-content:center;
 
 }
 
@@ -454,21 +648,29 @@ MR
 
 <ul>
 
-<li><a href="#">Home</a></li>
+<li><a href="#home">Home</a></li>
+
 <li><a href="#about">About</a></li>
+
 <li><a href="#research">Research</a></li>
+
+<li><a href="#experience">Experience</a></li>
+
 <li><a href="#projects">Projects</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
 <li><a href="#contact">Contact</a></li>
 
 </ul>
 
 </nav>
 
-<section class="hero">
+<section class="hero" id="home">
 
-<div class="left">
+<div class="hero-text">
 
-<h3>Hello, I'm</h3>
+<span>Hello, I'm</span>
 
 <h1>Mani Rani</h1>
 
@@ -484,7 +686,7 @@ Indian Institute of Technology Bombay
 
 </p>
 
-<div class="buttons">
+<div class="button-group">
 
 <a href="#" class="btn">
 
@@ -492,7 +694,7 @@ Download CV
 
 </a>
 
-<a href="#about" class="btn btn2">
+<a href="#about" class="btn btn-outline">
 
 Know More
 
@@ -502,11 +704,11 @@ Know More
 
 </div>
 
-<div class="right">
+<div class="hero-image">
 
 <div class="circle">
 
-<img src="profile.jpg">
+<img src="assets/profile.jpg">
 
 </div>
 
@@ -514,35 +716,75 @@ Know More
 
 </section>
 
+<section class="stats">
+
+<div class="stat">
+
+<h2>6+</h2>
+
+<p>Research Projects</p>
+
+</div>
+
+<div class="stat">
+
+<h2>3</h2>
+
+<p>Teaching Assistantships</p>
+
+</div>
+
+<div class="stat">
+
+<h2>8+</h2>
+
+<p>EDA Tools</p>
+
+</div>
+
+<div class="stat">
+
+<h2>2+</h2>
+
+<p>Years Industry Experience</p>
+
+</div>
+
+</section>
+
 <section class="about" id="about">
 
-<h1 class="title">
+<h1 class="section-title">
 
 About Me
 
 </h1>
 
-<div class="about-container">
+<div class="about-grid">
 
 <div class="about-card">
 
 <p>
 
-I am currently pursuing my Ph.D. in Electrical Engineering at the Indian Institute of Technology Bombay, specializing in Integrated Circuits and Systems. My research focuses on ASIC Design, RTL Design, FPGA Prototyping, Digital VLSI, and Navigation Receiver Architectures. I enjoy transforming algorithms into efficient hardware implementations, from Verilog RTL development and FPGA validation to physical design using Cadence tools.
+I am a Ph.D. Research Scholar in the Department of Electrical Engineering at the Indian Institute of Technology Bombay, specializing in Integrated Circuits and Systems. My research focuses on ASIC Design, RTL Design, FPGA Prototyping, Digital VLSI, and Navigation Receiver Architectures. I enjoy translating complex algorithms into efficient hardware, from Verilog RTL development and FPGA validation to ASIC implementation using Cadence Genus and Innovus.
 
 </p>
 
 </div>
 
-<div class="info">
+<div class="quick-info">
 
 <div class="info-box">
 
-<h4>Research Area</h4>
+<h3>Research</h3>
 
 <p>
 
-ASIC Design
+ASIC Design<br>
+
+RTL Design<br>
+
+Digital VLSI
 
 </p>
 
@@ -550,7 +792,7 @@ ASIC Design
 
 <div class="info-box">
 
-<h4>Languages</h4>
+<h3>Languages</h3>
 
 <p>
 
@@ -564,13 +806,13 @@ VHDL
 
 <div class="info-box">
 
-<h4>Platforms</h4>
+<h3>Platforms</h3>
 
 <p>
 
-Cadence
+Cadence<br>
 
-Vivado
+Vivado<br>
 
 PYNQ-Z2
 
@@ -583,99 +825,3 @@ PYNQ-Z2
 </div>
 
 </section>
-
-<section class="skills">
-
-<h1 class="title">
-
-Technical Expertise
-
-</h1>
-
-<div class="skill-grid">
-
-<div class="skill-card">
-
-<h3>
-
-Programming
-
-</h3>
-
-<ul>
-
-<li>Verilog</li>
-
-<li>VHDL</li>
-
-</ul>
-
-</div>
-
-<div class="skill-card">
-
-<h3>
-
-ASIC
-
-</h3>
-
-<ul>
-
-<li>Cadence Genus</li>
-
-<li>Innovus</li>
-
-<li>Virtuoso</li>
-
-</ul>
-
-</div>
-
-<div class="skill-card">
-
-<h3>
-
-FPGA
-
-</h3>
-
-<ul>
-
-<li>Vivado</li>
-
-<li>Quartus</li>
-
-<li>PYNQ-Z2</li>
-
-</ul>
-
-</div>
-
-<div class="skill-card">
-
-<h3>
-
-Simulation
-
-</h3>
-
-<ul>
-
-<li>MATLAB</li>
-
-<li>NgSpice</li>
-
-<li>GTKWave</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-</body>
-
-</html>
