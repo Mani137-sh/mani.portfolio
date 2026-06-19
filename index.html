@@ -4,641 +4,37 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mani Rani | Ph.D. Research Scholar</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Official Portfolio of Mani Rani | Ph.D. Research Scholar | IIT Bombay | ASIC Design | RTL Design | FPGA | Digital VLSI">
 
+<link rel="icon" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
-<style>
-
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-
-}
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-body{
-
-background:#050816;
-color:white;
-overflow-x:hidden;
-
-}
-
-/* Scrollbar */
-
-::-webkit-scrollbar{
-
-width:8px;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#38bdf8;
-border-radius:20px;
-
-}
-
-/* Background */
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-width:700px;
-height:700px;
-
-background:radial-gradient(circle,#2563eb33,transparent 70%);
-
-left:-250px;
-top:-250px;
-
-z-index:-2;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-width:700px;
-height:700px;
-
-background:radial-gradient(circle,#7c3aed22,transparent 70%);
-
-right:-250px;
-bottom:-250px;
-
-z-index:-2;
-
-}
-
-/* Navbar */
-
-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:20px 8%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-background:rgba(5,8,22,.75);
-
-backdrop-filter:blur(18px);
-
-z-index:1000;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.logo{
-
-font-size:32px;
-
-font-weight:700;
-
-color:#38bdf8;
-
-letter-spacing:2px;
-
-}
-
-nav ul{
-
-display:flex;
-
-list-style:none;
-
-gap:40px;
-
-}
-
-nav ul li a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:15px;
-
-transition:.4s;
-
-position:relative;
-
-}
-
-nav ul li a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-
-height:2px;
-
-background:#38bdf8;
-
-transition:.4s;
-
-}
-
-nav ul li a:hover{
-
-color:#38bdf8;
-
-}
-
-nav ul li a:hover::after{
-
-width:100%;
-
-}
-
-/* Hero */
-
-.hero{
-
-width:100%;
-
-min-height:100vh;
-
-padding:130px 8% 80px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-gap:80px;
-
-}
-
-.hero-text{
-
-flex:1;
-
-}
-
-.hero-text span{
-
-color:#38bdf8;
-
-font-size:18px;
-
-font-weight:500;
-
-}
-
-.hero-text h1{
-
-font-size:74px;
-
-line-height:82px;
-
-margin-top:15px;
-
-margin-bottom:15px;
-
-font-weight:800;
-
-}
-
-.hero-text h2{
-
-font-size:34px;
-
-font-weight:500;
-
-color:#cbd5e1;
-
-margin-bottom:20px;
-
-}
-
-.hero-text p{
-
-font-size:18px;
-
-line-height:34px;
-
-color:#94a3b8;
-
-max-width:650px;
-
-margin-bottom:35px;
-
-}
-
-.button-group{
-
-display:flex;
-
-gap:20px;
-
-}
-
-.btn{
-
-display:inline-block;
-
-padding:15px 34px;
-
-background:#38bdf8;
-
-color:black;
-
-font-weight:600;
-
-border-radius:10px;
-
-text-decoration:none;
-
-transition:.4s;
-
-}
-
-.btn:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 15px 30px rgba(56,189,248,.35);
-
-}
-
-.btn-outline{
-
-background:transparent;
-
-border:2px solid #38bdf8;
-
-color:white;
-
-}
-
-.btn-outline:hover{
-
-background:#38bdf8;
-
-color:black;
-
-}
-
-/* Image */
-
-.hero-image{
-
-flex:1;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-.circle{
-
-width:390px;
-
-height:390px;
-
-border-radius:50%;
-
-padding:8px;
-
-background:linear-gradient(135deg,#38bdf8,#7c3aed);
-
-animation:float 5s ease-in-out infinite;
-
-}
-
-.circle img{
-
-width:100%;
-
-height:100%;
-
-border-radius:50%;
-
-object-fit:cover;
-
-background:#111827;
-
-}
-
-@keyframes float{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-18px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
-}
-
-/* Stats */
-
-.stats{
-
-padding:20px 8% 80px;
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:25px;
-
-}
-
-.stat{
-
-background:#111827;
-
-padding:35px;
-
-border-radius:18px;
-
-text-align:center;
-
-transition:.4s;
-
-border:1px solid rgba(255,255,255,.05);
-
-}
-
-.stat:hover{
-
-transform:translateY(-10px);
-
-background:#172554;
-
-}
-
-.stat h2{
-
-font-size:42px;
-
-color:#38bdf8;
-
-margin-bottom:10px;
-
-}
-
-.stat p{
-
-color:#cbd5e1;
-
-}
-
-/* About */
-
-.about{
-
-padding:120px 8%;
-
-}
-
-.section-title{
-
-font-size:46px;
-
-margin-bottom:60px;
-
-text-align:center;
-
-color:#38bdf8;
-
-position:relative;
-
-}
-
-.section-title::after{
-
-content:"";
-
-position:absolute;
-
-width:90px;
-
-height:4px;
-
-background:#38bdf8;
-
-left:50%;
-
-transform:translateX(-50%);
-
-bottom:-15px;
-
-border-radius:10px;
-
-}
-
-.about-grid{
-
-display:grid;
-
-grid-template-columns:2fr 1fr;
-
-gap:40px;
-
-}
-
-.about-card{
-
-background:#111827;
-
-padding:45px;
-
-border-radius:22px;
-
-border:1px solid rgba(255,255,255,.06);
-
-transition:.4s;
-
-}
-
-.about-card:hover{
-
-transform:translateY(-10px);
-
-}
-
-.about-card p{
-
-line-height:34px;
-
-font-size:17px;
-
-color:#d1d5db;
-
-}
-
-.quick-info{
-
-display:grid;
-
-gap:20px;
-
-}
-
-.info-box{
-
-background:#111827;
-
-padding:25px;
-
-border-left:5px solid #38bdf8;
-
-border-radius:15px;
-
-transition:.4s;
-
-}
-
-.info-box:hover{
-
-transform:translateX(10px);
-
-}
-
-.info-box h3{
-
-color:#38bdf8;
-
-margin-bottom:10px;
-
-}
-
-.info-box p{
-
-color:#d1d5db;
-
-line-height:28px;
-
-font-size:15px;
-
-}
-
-/* Responsive */
-
-@media(max-width:1000px){
-
-.hero{
-
-flex-direction:column-reverse;
-
-text-align:center;
-
-}
-
-.hero-text h1{
-
-font-size:55px;
-
-line-height:60px;
-
-}
-
-.hero-text h2{
-
-font-size:26px;
-
-}
-
-.circle{
-
-width:280px;
-
-height:280px;
-
-}
-
-.stats{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.about-grid{
-
-grid-template-columns:1fr;
-
-}
-
-nav ul{
-
-display:none;
-
-}
-
-.button-group{
-
-justify-content:center;
-
-}
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<nav>
+<div id="particles-js"></div>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<header>
+
+<nav class="navbar">
 
 <div class="logo">
 
@@ -646,7 +42,7 @@ MR
 
 </div>
 
-<ul>
+<ul class="nav-links">
 
 <li><a href="#home">Home</a></li>
 
@@ -664,49 +60,278 @@ MR
 
 </ul>
 
+<div class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
 </nav>
+
+</header>
+
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
 
 <section class="hero" id="home">
 
-<div class="hero-text">
+<div class="hero-left">
 
-<span>Hello, I'm</span>
+<h4>
 
-<h1>Mani Rani</h1>
+Hello, I'm
 
-<h2>Ph.D. Research Scholar</h2>
+</h4>
+
+<h1>
+
+Mani Rani
+
+</h1>
+
+<h2>
+
+<span class="typing"></span>
+
+</h2>
 
 <p>
 
-Integrated Circuits & Systems<br>
+Ph.D. Research Scholar in the Department of Electrical Engineering at
+Indian Institute of Technology Bombay.
 
-Department of Electrical Engineering<br>
+Specialization in Integrated Circuits and Systems with research interests in
 
-Indian Institute of Technology Bombay
+ASIC Design,
+RTL Design,
+Digital VLSI,
+FPGA Prototyping,
+Navigation Receiver Architectures,
+Physical Design
+and Hardware Acceleration.
 
 </p>
 
-<div class="button-group">
+<div class="hero-buttons">
 
-<a href="#" class="btn">
+<a href="assets/Mani_Rani_Resume.pdf" class="btn" download>
 
-Download CV
+<i class="fa-solid fa-download"></i>
+
+Download Resume
 
 </a>
 
-<a href="#about" class="btn btn-outline">
+<a href="#contact" class="btn secondary">
 
-Know More
+Contact Me
 
 </a>
 
 </div>
 
+<div class="social-icons">
+
+<a href="#"><i class="fab fa-linkedin"></i></a>
+
+<a href="#"><i class="fab fa-github"></i></a>
+
+<a href="#"><i class="fas fa-envelope"></i></a>
+
+<a href="#"><i class="fab fa-google"></i></a>
+
 </div>
 
-<div class="hero-image">
+</div>
 
-<div class="circle">
+<div class="hero-right">
+
+<div class="image-box">
+
+<img src="assets/profile.jpg" alt="Mani Rani">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- STATS -->
+<!-- ========================= -->
+
+<section class="stats">
+
+<div class="stat-box">
+
+<h2 class="counter" data-target="6">0</h2>
+
+<h4>
+
+Research Projects
+
+</h4>
+
+</div>
+
+<div class="stat-box">
+
+<h2 class="counter" data-target="2">0</h2>
+
+<h4>
+
+Years Industry Experience
+
+</h4>
+
+</div>
+
+<div class="stat-box">
+
+<h2 class="counter" data-target="10">0</h2>
+
+<h4>
+
+EDA Tools
+
+</h4>
+
+</div>
+
+<div class="stat-box">
+
+<h2 class="counter" data-target="9">0</h2>
+
+<h4>
+
+Current CPI
+
+</h4>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- ABOUT -->
+<!-- ========================= -->
+
+<section id="about" class="about">
+
+<div class="section-title">
+
+<h2>
+
+About Me
+
+</h2>
+
+<p>
+
+Know more about me
+
+</p>
+
+</div>
+
+<div class="about-container">
+
+<div class="about-text">
+
+<h3>
+
+Who am I?
+
+</h3>
+
+<p>
+
+I am a Ph.D. Research Scholar at the Department of Electrical Engineering,
+Indian Institute of Technology Bombay.
+
+My research focuses on designing high-performance and low-power hardware architectures for GPS/NavIC acquisition receivers targeting ASIC implementation.
+
+I have industrial experience as an RTL Design Engineer at Chipspirit Technologies where I worked on FPGA based Encryption and Decryption projects.
+
+My expertise spans RTL Design, FPGA Prototyping, Physical Design, ASIC Implementation, Verification and Hardware Validation.
+
+</p>
+
+<div class="about-grid">
+
+<div>
+
+<h4>
+
+Education
+
+</h4>
+
+<p>
+
+Ph.D. — IIT Bombay
+
+</p>
+
+</div>
+
+<div>
+
+<h4>
+
+Specialization
+
+</h4>
+
+<p>
+
+Integrated Circuits & Systems
+
+</p>
+
+</div>
+
+<div>
+
+<h4>
+
+Experience
+
+</h4>
+
+<p>
+
+RTL Design Engineer
+
+</p>
+
+</div>
+
+<div>
+
+<h4>
+
+Current CPI
+
+</h4>
+
+<p>
+
+9.34
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="about-image">
 
 <img src="assets/profile.jpg">
 
@@ -715,1450 +340,3 @@ Know More
 </div>
 
 </section>
-
-<section class="stats">
-
-<div class="stat">
-
-<h2>6+</h2>
-
-<p>Research Projects</p>
-
-</div>
-
-<div class="stat">
-
-<h2>3</h2>
-
-<p>Teaching Assistantships</p>
-
-</div>
-
-<div class="stat">
-
-<h2>8+</h2>
-
-<p>EDA Tools</p>
-
-</div>
-
-<div class="stat">
-
-<h2>2+</h2>
-
-<p>Years Industry Experience</p>
-
-</div>
-
-</section>
-
-<section class="about" id="about">
-
-<h1 class="section-title">
-
-About Me
-
-</h1>
-
-<div class="about-grid">
-
-<div class="about-card">
-
-<p>
-
-I am a Ph.D. Research Scholar in the Department of Electrical Engineering at the Indian Institute of Technology Bombay, specializing in Integrated Circuits and Systems. My research focuses on ASIC Design, RTL Design, FPGA Prototyping, Digital VLSI, and Navigation Receiver Architectures. I enjoy translating complex algorithms into efficient hardware, from Verilog RTL development and FPGA validation to ASIC implementation using Cadence Genus and Innovus.
-
-</p>
-
-</div>
-
-<div class="quick-info">
-
-<div class="info-box">
-
-<h3>Research</h3>
-
-<p>
-
-ASIC Design<br>
-
-RTL Design<br>
-
-Digital VLSI
-
-</p>
-
-</div>
-
-<div class="info-box">
-
-<h3>Languages</h3>
-
-<p>
-
-Verilog<br>
-
-VHDL
-
-</p>
-
-</div>
-
-<div class="info-box">
-
-<h3>Platforms</h3>
-
-<p>
-
-Cadence<br>
-
-Vivado<br>
-
-PYNQ-Z2
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-  <!-- ========================= -->
-<!-- RESEARCH SECTION START -->
-<!-- Paste below About Section -->
-<!-- ========================= -->
-
-<section class="research" id="research">
-
-<h1 class="section-title">
-
-Research
-
-</h1>
-
-<div class="research-container">
-
-<div class="research-card featured">
-
-<div class="research-left">
-
-<span class="tag">Featured Research</span>
-
-<h2>Design of Acquisition Module for the NavIC Receiver Chip</h2>
-
-<p>
-
-Designed and implemented an ASIC-oriented GPS/NavIC acquisition architecture using Verilog RTL.
-The work includes PRN generation, carrier generation using a fixed-point NCO,
-multi-bin Doppler search, MAC-based correlation, FPGA prototyping on PYNQ-Z2
-and complete ASIC implementation using Cadence Genus and Innovus.
-
-</p>
-
-<div class="research-tech">
-
-<span>Verilog RTL</span>
-
-<span>Cadence Genus</span>
-
-<span>Innovus</span>
-
-<span>PYNQ-Z2</span>
-
-<span>MATLAB</span>
-
-<span>GPS</span>
-
-<span>NavIC</span>
-
-</div>
-
-</div>
-
-<div class="research-right">
-
-<div class="flow">
-
-<div>Algorithm</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>RTL</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>Simulation</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>FPGA</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>ASIC</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- EXPERIENCE SECTION -->
-<!-- ========================= -->
-
-<section class="experience" id="experience">
-
-<h1 class="section-title">
-
-Experience
-
-</h1>
-
-<div class="timeline">
-
-<div class="timeline-item">
-
-<div class="circle-dot"></div>
-
-<div class="timeline-content">
-
-<span class="year">
-
-Aug 2022 — Aug 2024
-
-</span>
-
-<h2>
-
-RTL Design Engineer
-
-</h2>
-
-<h3>
-
-Chipspirit Technologies
-
-</h3>
-
-<ul>
-
-<li>Worked on Encryption and Decryption based FPGA projects.</li>
-
-<li>Developed RTL using Verilog.</li>
-
-<li>Generated FPGA bitstreams using Vivado.</li>
-
-<li>Performed hardware validation on KU11P FPGA board.</li>
-
-<li>Debugged hardware using ILA and VIO.</li>
-
-<li>Measured throughput using iperf3.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="circle-dot"></div>
-
-<div class="timeline-content">
-
-<span class="year">
-
-Present
-
-</span>
-
-<h2>
-
-Ph.D. Research Scholar
-
-</h2>
-
-<h3>
-
-Department of Electrical Engineering
-
-<br>
-
-Indian Institute of Technology Bombay
-
-</h3>
-
-<ul>
-
-<li>Research in ASIC Design.</li>
-
-<li>RTL Design.</li>
-
-<li>FPGA Prototyping.</li>
-
-<li>Digital VLSI.</li>
-
-<li>Navigation Receiver Architecture.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- PROJECT SECTION -->
-<!-- ========================= -->
-
-<section class="projects" id="projects">
-
-<h1 class="section-title">
-
-Projects
-
-</h1>
-
-<div class="project-grid">
-
-<div class="project-card">
-
-<h2>
-
-NavIC Receiver
-
-</h2>
-
-<p>
-
-ASIC implementation of GPS/NavIC acquisition architecture.
-
-</p>
-
-<div class="chips">
-
-<span>Verilog</span>
-
-<span>ASIC</span>
-
-<span>Cadence</span>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<h2>
-
-AXI4-Lite Signal Generator
-
-</h2>
-
-<p>
-
-Designed AXI4-Lite interface with BRAM and integrated Dadda multiplier.
-
-</p>
-
-<div class="chips">
-
-<span>AXI</span>
-
-<span>Vivado</span>
-
-<span>FPGA</span>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<h2>
-
-Sky130 Standard Cells
-
-</h2>
-
-<p>
-
-Designed and characterized DFF, NOR2 and Buffer using Sky130 PDK.
-
-</p>
-
-<div class="chips">
-
-<span>Sky130</span>
-
-<span>NgSpice</span>
-
-<span>Magic</span>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<h2>
-
-SAT Testing of 74181 ALU
-
-</h2>
-
-<p>
-
-Developed SAT based testing methodology using Python and CNF generation.
-
-</p>
-
-<div class="chips">
-
-<span>Python</span>
-
-<span>Testing</span>
-
-<span>CNF</span>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<h2>
-
-Asynchronous FIFO
-
-</h2>
-
-<p>
-
-Dual-clock FIFO with Gray-code pointer synchronization.
-
-</p>
-
-<div class="chips">
-
-<span>Verilog</span>
-
-<span>CDC</span>
-
-<span>FIFO</span>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<h2>
-
-RISC-V Decode & ALU
-
-</h2>
-
-<p>
-
-RTL implementation and OpenLane ASIC flow.
-
-</p>
-
-<div class="chips">
-
-<span>RV32I</span>
-
-<span>OpenLane</span>
-
-<span>RTL</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- ADD THIS CSS -->
-<!-- ========================= -->
-
-<style>
-
-.research,
-.experience,
-.projects{
-
-padding:120px 8%;
-
-}
-
-.research-card{
-
-display:grid;
-
-grid-template-columns:2fr 1fr;
-
-gap:50px;
-
-background:#111827;
-
-padding:40px;
-
-border-radius:20px;
-
-}
-
-.tag{
-
-display:inline-block;
-
-background:#38bdf8;
-
-color:#000;
-
-padding:8px 16px;
-
-border-radius:30px;
-
-font-size:14px;
-
-font-weight:600;
-
-margin-bottom:20px;
-
-}
-
-.research-card h2{
-
-margin-bottom:20px;
-
-font-size:34px;
-
-}
-
-.research-card p{
-
-line-height:34px;
-
-color:#cbd5e1;
-
-}
-
-.research-tech{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:15px;
-
-margin-top:30px;
-
-}
-
-.research-tech span{
-
-background:#1e293b;
-
-padding:10px 18px;
-
-border-radius:30px;
-
-}
-
-.flow{
-
-height:100%;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-gap:18px;
-
-font-weight:600;
-
-}
-
-.flow div{
-
-background:#38bdf8;
-
-color:black;
-
-padding:14px 25px;
-
-border-radius:30px;
-
-}
-
-.timeline{
-
-position:relative;
-
-padding-left:30px;
-
-border-left:3px solid #38bdf8;
-
-}
-
-.timeline-item{
-
-margin-bottom:60px;
-
-position:relative;
-
-}
-
-.circle-dot{
-
-width:18px;
-
-height:18px;
-
-background:#38bdf8;
-
-border-radius:50%;
-
-position:absolute;
-
-left:-41px;
-
-top:8px;
-
-}
-
-.timeline-content{
-
-background:#111827;
-
-padding:30px;
-
-border-radius:18px;
-
-}
-
-.timeline-content h2{
-
-margin:15px 0;
-
-}
-
-.timeline-content h3{
-
-color:#38bdf8;
-
-margin-bottom:20px;
-
-}
-
-.timeline-content ul{
-
-padding-left:20px;
-
-line-height:34px;
-
-color:#cbd5e1;
-
-}
-
-.year{
-
-color:#38bdf8;
-
-font-weight:600;
-
-}
-
-.project-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-gap:30px;
-
-}
-
-.project-card{
-
-background:#111827;
-
-padding:35px;
-
-border-radius:20px;
-
-transition:.4s;
-
-border:1px solid rgba(255,255,255,.05);
-
-}
-
-.project-card:hover{
-
-transform:translateY(-12px);
-
-background:#172554;
-
-}
-
-.project-card h2{
-
-margin-bottom:18px;
-
-}
-
-.project-card p{
-
-line-height:30px;
-
-color:#cbd5e1;
-
-margin-bottom:25px;
-
-}
-
-.chips{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:12px;
-
-}
-
-.chips span{
-
-background:#38bdf8;
-
-color:black;
-
-padding:8px 16px;
-
-border-radius:25px;
-
-font-size:14px;
-
-font-weight:600;
-
-}
-
-@media(max-width:900px){
-
-.research-card{
-
-grid-template-columns:1fr;
-
-}
-
-}
-
-</style>
-  <!-- ========================= -->
-<!-- SKILLS SECTION -->
-<!-- ========================= -->
-
-<section class="skills" id="skills">
-
-<h1 class="section-title">
-
-Technical Skills
-
-</h1>
-
-<div class="skills-grid">
-
-<div class="skill-box">
-
-<i class="fa-solid fa-code"></i>
-
-<h2>Programming</h2>
-
-<ul>
-
-<li>Verilog HDL</li>
-
-<li>VHDL</li>
-
-<li>Python</li>
-
-</ul>
-
-</div>
-
-<div class="skill-box">
-
-<i class="fa-solid fa-microchip"></i>
-
-<h2>EDA Tools</h2>
-
-<ul>
-
-<li>Cadence Genus</li>
-
-<li>Cadence Innovus</li>
-
-<li>Cadence Virtuoso</li>
-
-<li>OpenLane</li>
-
-<li>Magic</li>
-
-<li>Netgen</li>
-
-</ul>
-
-</div>
-
-<div class="skill-box">
-
-<i class="fa-solid fa-laptop-code"></i>
-
-<h2>FPGA</h2>
-
-<ul>
-
-<li>Vivado</li>
-
-<li>Quartus</li>
-
-<li>PYNQ-Z2</li>
-
-<li>Docker</li>
-
-</ul>
-
-</div>
-
-<div class="skill-box">
-
-<i class="fa-solid fa-wave-square"></i>
-
-<h2>Simulation</h2>
-
-<ul>
-
-<li>MATLAB</li>
-
-<li>NgSpice</li>
-
-<li>GTKWave</li>
-
-<li>Icarus Verilog</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- EDUCATION -->
-<!-- ========================= -->
-
-<section class="education" id="education">
-
-<h1 class="section-title">
-
-Education
-
-</h1>
-
-<div class="edu-timeline">
-
-<div class="edu-card">
-
-<span>2024 - Present</span>
-
-<h2>
-
-Ph.D.
-
-</h2>
-
-<h3>
-
-Indian Institute of Technology Bombay
-
-</h3>
-
-<p>
-
-Electrical Engineering
-
-<br>
-
-Integrated Circuits & Systems
-
-</p>
-
-</div>
-
-<div class="edu-card">
-
-<span>2020 - 2022</span>
-
-<h2>
-
-M.Tech
-
-</h2>
-
-<h3>
-
-Indian Institute of Technology Jodhpur
-
-</h3>
-
-</div>
-
-<div class="edu-card">
-
-<span>2014 - 2018</span>
-
-<h2>
-
-B.Tech
-
-</h2>
-
-<h3>
-
-SLIET Punjab
-
-</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- ACHIEVEMENTS -->
-<!-- ========================= -->
-
-<section class="achievements">
-
-<h1 class="section-title">
-
-Achievements
-
-</h1>
-
-<div class="achievement-grid">
-
-<div class="achievement">
-
-<i class="fa-solid fa-trophy"></i>
-
-<h3>
-
-VSI 1-TOPS
-
-</h3>
-
-<p>
-
-Selected among 37 teams across India.
-
-</p>
-
-</div>
-
-<div class="achievement">
-
-<i class="fa-solid fa-award"></i>
-
-<h3>
-
-AA Grade
-
-</h3>
-
-<p>
-
-Hardware Description Language Course
-
-</p>
-
-</div>
-
-<div class="achievement">
-
-<i class="fa-solid fa-medal"></i>
-
-<h3>
-
-VLSID 2026
-
-</h3>
-
-<p>
-
-International Conference Participant
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- RESPONSIBILITY -->
-<!-- ========================= -->
-
-<section class="leadership">
-
-<h1 class="section-title">
-
-Positions of Responsibility
-
-</h1>
-
-<div class="lead-grid">
-
-<div>
-
-<h3>
-
-Teaching Assistant
-
-</h3>
-
-<p>
-
-Maker Space Lab
-
-</p>
-
-</div>
-
-<div>
-
-<h3>
-
-Teaching Assistant
-
-</h3>
-
-<p>
-
-Digital Systems
-
-</p>
-
-</div>
-
-<div>
-
-<h3>
-
-Teaching Assistant
-
-</h3>
-
-<p>
-
-Microprocessors
-
-</p>
-
-</div>
-
-<div>
-
-<h3>
-
-Technical Councillor
-
-</h3>
-
-<p>
-
-Hostel 10
-
-</p>
-
-</div>
-
-<div>
-
-<h3>
-
-Sports Secretary
-
-</h3>
-
-<p>
-
-Hostel 10
-
-</p>
-
-</div>
-
-<div>
-
-<h3>
-
-Advisory Body Member
-
-</h3>
-
-<p>
-
-Happy Club
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- CONTACT -->
-<!-- ========================= -->
-
-<section class="contact" id="contact">
-
-<h1 class="section-title">
-
-Contact
-
-</h1>
-
-<div class="contact-box">
-
-<div>
-
-<h2>
-
-Let's Connect
-
-</h2>
-
-<p>
-
-Feel free to contact me regarding research collaboration,
-ASIC Design, RTL Design or FPGA Development.
-
-</p>
-
-</div>
-
-<form>
-
-<input type="text" placeholder="Your Name">
-
-<input type="email" placeholder="Email">
-
-<textarea rows="6" placeholder="Message"></textarea>
-
-<button>
-
-Send Message
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-<footer>
-
-<h2>
-
-Mani Rani
-
-</h2>
-
-<p>
-
-Designed with ❤ using HTML • CSS • JavaScript
-
-</p>
-
-</footer>
-
-<!-- ========================= -->
-<!-- CSS -->
-<!-- ========================= -->
-
-<style>
-
-.skills,
-.education,
-.achievements,
-.leadership,
-.contact{
-
-padding:120px 8%;
-
-}
-
-.skills-grid,
-.achievement-grid,
-.lead-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
-
-}
-
-.skill-box,
-.achievement,
-.lead-grid div{
-
-background:#111827;
-
-padding:35px;
-
-border-radius:18px;
-
-transition:.4s;
-
-}
-
-.skill-box:hover,
-.achievement:hover,
-.lead-grid div:hover{
-
-transform:translateY(-10px);
-
-background:#172554;
-
-}
-
-.skill-box i,
-.achievement i{
-
-font-size:45px;
-
-color:#38bdf8;
-
-margin-bottom:20px;
-
-}
-
-.skill-box ul{
-
-padding-left:20px;
-
-line-height:34px;
-
-color:#d1d5db;
-
-}
-
-.edu-timeline{
-
-display:flex;
-
-flex-direction:column;
-
-gap:30px;
-
-}
-
-.edu-card{
-
-background:#111827;
-
-padding:35px;
-
-border-left:5px solid #38bdf8;
-
-border-radius:15px;
-
-}
-
-.edu-card span{
-
-color:#38bdf8;
-
-font-weight:600;
-
-}
-
-.edu-card h2{
-
-margin:15px 0;
-
-}
-
-.contact-box{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:50px;
-
-align-items:center;
-
-}
-
-.contact-box form{
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
-}
-
-.contact-box input,
-.contact-box textarea{
-
-padding:15px;
-
-background:#111827;
-
-border:none;
-
-border-radius:10px;
-
-color:white;
-
-}
-
-.contact-box button{
-
-padding:16px;
-
-background:#38bdf8;
-
-border:none;
-
-font-size:17px;
-
-font-weight:600;
-
-border-radius:10px;
-
-cursor:pointer;
-
-}
-
-footer{
-
-padding:40px;
-
-text-align:center;
-
-background:#030712;
-
-margin-top:60px;
-
-}
-
-footer p{
-
-color:#94a3b8;
-
-margin-top:10px;
-
-}
-
-@media(max-width:900px){
-
-.contact-box{
-
-grid-template-columns:1fr;
-
-}
-
-}
-
-</style>
-
-<!-- ========================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================= -->
-
-<script>
-
-const cards=document.querySelectorAll(
-'.project-card,.skill-box,.achievement,.stat,.about-card'
-);
-
-const observer=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0px)";
-
-}
-
-});
-
-});
-
-cards.forEach(card=>{
-
-card.style.opacity="0";
-
-card.style.transform="translateY(40px)";
-
-card.style.transition=".8s";
-
-observer.observe(card);
-
-});
-
-window.addEventListener("scroll",()=>{
-
-const nav=document.querySelector("nav");
-
-if(window.scrollY>80){
-
-nav.style.background="#050816";
-
-}else{
-
-nav.style.background="rgba(5,8,22,.75)";
-
-}
-
-});
-
-</script>
-
-</body>
-
-</html>
