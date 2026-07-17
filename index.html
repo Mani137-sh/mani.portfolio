@@ -1,780 +1,757 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mani Rani | Ph.D. Research Scholar</title>
-
-<meta name="description" content="Official Portfolio of Mani Rani | Ph.D. Research Scholar | IIT Bombay | ASIC Design | RTL Design | FPGA | Digital VLSI">
-
-<link rel="icon" href="assets/favicon.png">
-
+<title>Mani Rani — Ph.D. Research Scholar, IIT Bombay</title>
+<meta name="description" content="Mani Rani — Ph.D. Research Scholar, Electrical Engineering, IIT Bombay. ASIC/RTL design for GPS/NavIC acquisition receivers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0D1B1E;
+    --bg-panel: #12262A;
+    --bg-panel-2: #16302F;
+    --line: #24444A;
+    --line-soft: #1B3438;
+    --text: #E8EDE9;
+    --text-dim: #93A5A2;
+    --text-faint: #5D726F;
+    --copper: #C97C4B;
+    --copper-dim: #8C5A38;
+    --scope: #5EE6A6;
+    --scope-dim: #2E6B54;
+    --serif: 'IBM Plex Serif', Georgia, serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  *{ margin:0; padding:0; box-sizing:border-box; }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  html{ scroll-behavior:smooth; }
 
-<link rel="stylesheet" href="style.css">
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity:0.15;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .fiducial{
+    position:absolute;
+    width:16px; height:16px;
+    pointer-events:none;
+    opacity:0.5;
+    z-index:2;
+  }
+  .fiducial::before, .fiducial::after{
+    content:""; position:absolute; background: var(--copper);
+  }
+  .fiducial::before{ top:7px; left:0; width:16px; height:2px; }
+  .fiducial::after{ top:0; left:7px; width:2px; height:16px; }
+  .fid-tl{ top:18px; left:18px; }
+  .fid-tr{ top:18px; right:18px; }
+  .fid-bl{ bottom:18px; left:18px; }
+  .fid-br{ bottom:18px; right:18px; }
+
+  a{ color: inherit; text-decoration:none; }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position:relative;
+    z-index:1;
+  }
+
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--copper);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background: var(--copper);
+    display:inline-block;
+  }
+
+  /* ============ NAV ============ */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(13,27,30,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .navbar{
+    max-width:1180px; margin:0 auto; padding: 18px 40px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family: var(--mono); font-size:13px; letter-spacing:0.1em;
+    color: var(--text); display:flex; align-items:center; gap:8px;
+  }
+  .nav-mark .dot{ width:7px; height:7px; border-radius:50%; background: var(--scope); box-shadow: 0 0 8px var(--scope); }
+  .nav-links{
+    list-style:none; display:flex; gap:32px;
+  }
+  .nav-links a{
+    font-family: var(--mono); font-size:12.5px; letter-spacing:0.05em;
+    color: var(--text-dim); text-transform:uppercase;
+    transition: color 0.2s;
+    position:relative;
+  }
+  .nav-links a:hover{ color: var(--scope); }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0; height:1px;
+    background: var(--scope); transition: width 0.25s;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .menu-btn{ display:none; color:var(--text); font-size:20px; cursor:pointer; }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 60px;
+    align-items:center;
+  }
+  .hero-name{
+    font-family: var(--serif);
+    font-weight:600;
+    font-size: 64px;
+    line-height:1.05;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .hero-role{
+    font-family: var(--mono);
+    color: var(--scope);
+    font-size: 18px;
+    margin-bottom: 22px;
+    min-height: 26px;
+  }
+  .hero-role .cursor{ opacity:1; animation: blink 1s step-start infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .hero-desc{
+    color: var(--text-dim);
+    font-size: 16px;
+    max-width: 520px;
+    margin-bottom: 34px;
+  }
+  .hero-desc strong{ color:var(--text); font-weight:500; }
+
+  .hero-buttons{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px; }
+  .btn{
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing:0.04em;
+    padding: 13px 24px;
+    border: 1px solid var(--copper);
+    color: var(--bg);
+    background: var(--copper);
+    display:inline-flex; align-items:center; gap:8px;
+    transition: all 0.2s;
+    cursor:pointer;
+  }
+  .btn:hover{ background: transparent; color: var(--copper); }
+  .btn.ghost{
+    background: transparent; color: var(--text);
+    border: 1px solid var(--line);
+  }
+  .btn.ghost:hover{ border-color: var(--scope); color: var(--scope); }
+
+  .hero-meta{
+    display:flex; gap:28px; flex-wrap:wrap;
+  }
+  .hero-meta .item{ font-family: var(--mono); font-size:12px; color: var(--text-faint); }
+  .hero-meta .item b{ color: var(--text-dim); display:block; font-size:13px; margin-bottom:2px; }
+
+  .hero-right{ position:relative; display:flex; justify-content:center; }
+  .chip-frame{
+    position:relative;
+    width: 300px; height: 340px;
+    border: 1px solid var(--line);
+    background: var(--bg-panel);
+    padding: 18px;
+  }
+  .chip-frame .pins{
+    position:absolute; top:0; left:0; right:0; bottom:0;
+  }
+  .chip-frame .pins span{
+    position:absolute; width:14px; height:2px; background: var(--line);
+  }
+  .photo-box{
+    width:100%; height: 100%;
+    overflow:hidden;
+    filter: grayscale(0.15) contrast(1.05);
+    border: 1px solid var(--line-soft);
+  }
+  .photo-box img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .chip-label{
+    font-family: var(--mono); font-size:10.5px; color: var(--text-faint);
+    text-align:center; margin-top:12px; letter-spacing:0.08em;
+  }
+  .chip-label .id{ color: var(--copper); }
+
+  /* ============ SECTION SHELL ============ */
+  section.block{
+    padding: 90px 0;
+    border-bottom: 1px solid var(--line);
+    position:relative;
+  }
+  .section-head{
+    display:flex; align-items:baseline; gap:18px;
+    margin-bottom: 48px;
+  }
+  .section-num{
+    font-family: var(--mono); font-size:13px; color: var(--copper);
+  }
+  .section-title{
+    font-family: var(--serif); font-size: 34px; font-weight:600;
+  }
+  .section-sub{
+    font-family: var(--sans); color: var(--text-dim); font-size:14.5px;
+    margin-top: -30px; margin-bottom: 44px; max-width:640px;
+  }
+
+  /* ============ STATS ============ */
+  .stats-strip{
+    display:grid; grid-template-columns: repeat(4,1fr);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .stat-box{
+    padding: 34px 30px;
+    border-right: 1px solid var(--line);
+    text-align:left;
+  }
+  .stat-box:last-child{ border-right:none; }
+  .stat-num{
+    font-family: var(--serif); font-size: 40px; color: var(--scope); font-weight:600;
+  }
+  .stat-label{
+    font-family: var(--mono); font-size:11.5px; color: var(--text-faint);
+    text-transform:uppercase; letter-spacing:0.06em; margin-top:6px;
+  }
+
+  /* ============ ABOUT ============ */
+  .about-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:60px;
+  }
+  .about-text p{ color: var(--text-dim); margin-bottom: 18px; font-size:15.5px; }
+  .about-text strong{ color:var(--text); font-weight:500; }
+  .fact-table{ border-top:1px solid var(--line); }
+  .fact-row{
+    display:flex; justify-content:space-between;
+    padding: 16px 0; border-bottom:1px solid var(--line);
+    font-family: var(--mono); font-size:13px;
+  }
+  .fact-row span:first-child{ color: var(--text-faint); }
+  .fact-row span:last-child{ color: var(--text); text-align:right; }
+
+  /* ============ RESEARCH / SIGNATURE DIAGRAM ============ */
+  .research-panel{
+    border:1px solid var(--line);
+    background: var(--bg-panel);
+    padding: 44px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items:center;
+  }
+  .research-panel h3{
+    font-family: var(--serif); font-size:24px; margin-bottom:16px; font-weight:600;
+  }
+  .research-panel p{ color: var(--text-dim); font-size:14.5px; margin-bottom:14px; }
+  .metric-line{
+    display:flex; gap:22px; flex-wrap:wrap; margin-top:20px;
+  }
+  .metric-line .m{ font-family:var(--mono); font-size:12px; }
+  .metric-line .m b{ display:block; color: var(--scope); font-size:18px; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+  .tag{
+    font-family: var(--mono); font-size:11px; color: var(--text-dim);
+    border:1px solid var(--line); padding:5px 10px;
+  }
+
+  svg.diagram{ width:100%; height:auto; }
+  .flow-node rect{ fill: var(--bg-panel-2); stroke: var(--line); stroke-width:1; }
+  .flow-node text{ fill: var(--text-dim); font-family: var(--mono); font-size:11px; }
+  .flow-path{ stroke: var(--line); stroke-width:1.5; fill:none; }
+  .pulse{ fill: var(--scope); filter: drop-shadow(0 0 6px var(--scope)); }
+
+  /* ============ TIMELINE ============ */
+  .timeline{ position:relative; }
+  .tl-item{
+    display:grid; grid-template-columns: 160px 1fr;
+    gap: 30px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .tl-item:first-child{ padding-top:0; }
+  .tl-date{
+    font-family: var(--mono); font-size:12px; color: var(--copper);
+  }
+  .tl-role{ font-family: var(--serif); font-size:21px; font-weight:600; margin-bottom:4px;}
+  .tl-org{ font-family: var(--mono); font-size:12.5px; color: var(--scope); margin-bottom:14px; }
+  .tl-item ul{ padding-left:18px; color: var(--text-dim); font-size:14px; }
+  .tl-item li{ margin-bottom:6px; }
+  .tl-item li::marker{ color: var(--copper); }
+
+  /* ============ PROJECTS ============ */
+  .proj-grid{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .proj-card{
+    background: var(--bg); padding: 30px;
+    transition: background 0.2s;
+  }
+  .proj-card:hover{ background: var(--bg-panel); }
+  .proj-index{ font-family:var(--mono); font-size:11px; color: var(--text-faint); margin-bottom:10px;}
+  .proj-title{ font-family: var(--serif); font-size:19px; font-weight:600; margin-bottom:8px; }
+  .proj-course{ font-family:var(--mono); font-size:11.5px; color: var(--copper); margin-bottom:12px; }
+  .proj-card p{ color: var(--text-dim); font-size:13.5px; }
+
+  /* ============ SKILLS ============ */
+  .skill-cols{ display:grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+  .skill-col h4{
+    font-family: var(--mono); font-size:12px; color: var(--copper);
+    text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;
+    padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .skill-col ul{ list-style:none; }
+  .skill-col li{
+    font-size:14px; color: var(--text-dim); padding: 8px 0;
+    border-bottom: 1px dashed var(--line-soft);
+    display:flex; justify-content:space-between;
+  }
+  .skill-col li::after{ content:"▪"; color: var(--scope); font-size:9px; }
+
+  /* ============ EDUCATION ============ */
+  .edu-table{ width:100%; border-collapse:collapse; }
+  .edu-table th{
+    font-family: var(--mono); font-size:11px; text-transform:uppercase;
+    letter-spacing:0.06em; color: var(--text-faint); text-align:left;
+    padding: 12px 16px; border-bottom:1px solid var(--line);
+  }
+  .edu-table td{
+    padding: 18px 16px; border-bottom:1px solid var(--line);
+    font-size:14px; color: var(--text-dim);
+  }
+  .edu-table td.deg{ font-family: var(--serif); font-size:17px; color: var(--text); font-weight:600; }
+  .edu-table td.score{ color: var(--scope); font-family: var(--mono); }
+
+  /* ============ ACHIEVEMENTS / POR ============ */
+  .note-list{ display:flex; flex-direction:column; gap:20px; }
+  .note{
+    display:grid; grid-template-columns: 90px 1fr; gap:20px;
+    padding: 18px 0; border-bottom:1px solid var(--line-soft);
+  }
+  .note .tag2{ font-family:var(--mono); font-size:11px; color:var(--copper); }
+  .note p{ color:var(--text-dim); font-size:14px; }
+  .note strong{ color:var(--text); }
+
+  /* ============ CONTACT ============ */
+  .contact-panel{
+    border:1px solid var(--line); background: var(--bg-panel);
+    padding: 60px; display:grid; grid-template-columns: 1.2fr 0.8fr; gap:50px;
+    align-items:center;
+  }
+  .contact-panel h2{ font-family:var(--serif); font-size:32px; margin-bottom:14px; font-weight:600; }
+  .contact-panel p{ color: var(--text-dim); font-size:15px; margin-bottom: 26px; max-width:440px; }
+  .contact-links{ display:flex; flex-direction:column; gap:16px; }
+  .contact-links a{
+    font-family:var(--mono); font-size:14px; color: var(--text);
+    display:flex; align-items:center; gap:12px; padding: 14px 18px;
+    border:1px solid var(--line); transition: all 0.2s;
+  }
+  .contact-links a:hover{ border-color: var(--scope); color: var(--scope); }
+  .contact-links a .k{ color: var(--copper); width:80px; flex-shrink:0; font-size:11px; text-transform:uppercase; }
+
+  footer{
+    padding: 30px 0 50px; text-align:center;
+    font-family: var(--mono); font-size:11.5px; color: var(--text-faint);
+  }
+
+  [data-reveal]{
+    opacity:0; transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  [data-reveal].in{ opacity:1; transform:none; }
+
+  @media (max-width: 900px){
+    .nav-links{ display:none; }
+    .menu-btn{ display:block; }
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero-right{ order:-1; margin-bottom:30px; }
+    .hero-name{ font-size:44px; }
+    .stats-strip{ grid-template-columns: repeat(2,1fr); }
+    .stat-box:nth-child(2){ border-right:none; }
+    .about-grid{ grid-template-columns:1fr; }
+    .research-panel{ grid-template-columns:1fr; padding:26px; }
+    .proj-grid{ grid-template-columns:1fr; }
+    .skill-cols{ grid-template-columns:1fr; gap:24px; }
+    .contact-panel{ grid-template-columns:1fr; padding:34px; }
+    .tl-item{ grid-template-columns:1fr; gap:8px; }
+    .wrap{ padding: 0 22px; }
+  }
+</style>
 </head>
-
 <body>
 
-<div id="particles-js"></div>
-
-<!-- ========================= -->
-<!-- NAVBAR -->
-<!-- ========================= -->
-
 <header>
-
-<nav class="navbar">
-
-<div class="logo">
-
-MR
-
-</div>
-
-<ul class="nav-links">
-
-<li><a href="#home">Home</a></li>
-
-<li><a href="#about">About</a></li>
-
-<li><a href="#research">Research</a></li>
-
-<li><a href="#experience">Experience</a></li>
-
-<li><a href="#projects">Projects</a></li>
-
-<li><a href="#skills">Skills</a></li>
-
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<div class="menu-btn">
-
-<i class="fa-solid fa-bars"></i>
-
-</div>
-
-</nav>
-
+  <div class="navbar">
+    <div class="nav-mark"><span class="dot"></span>MANI RANI — 24D0532</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-btn">☰</div>
+  </div>
 </header>
 
-
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
-
+<!-- ============ HERO ============ -->
 <section class="hero" id="home">
-
-<div class="hero-left">
-
-<h4>
-
-Hello, I'm
-
-</h4>
-
-<h1>
-
-Mani Rani
-
-</h1>
-
-<h2>
-
-<span class="typing"></span>
-
-</h2>
-
-<p>
-
-Ph.D. Research Scholar in the Department of Electrical Engineering at
-Indian Institute of Technology Bombay.
-
-Specialization in Integrated Circuits and Systems with research interests in
-
-ASIC Design,
-RTL Design,
-Digital VLSI,
-FPGA Prototyping,
-Navigation Receiver Architectures,
-Physical Design
-and Hardware Acceleration.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="assets/Mani_Rani_Resume.pdf" class="btn" download>
-
-<i class="fa-solid fa-download"></i>
-
-Download Resume
-
-</a>
-
-<a href="#contact" class="btn secondary">
-
-Contact Me
-
-</a>
-
-</div>
-
-<div class="social-icons">
-
-<a href="#"><i class="fab fa-linkedin"></i></a>
-
-<a href="#"><i class="fab fa-github"></i></a>
-
-<a href="#"><i class="fas fa-envelope"></i></a>
-
-<a href="#"><i class="fab fa-google"></i></a>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<div class="image-box">
-
-<img src="assets/profile.jpg" alt="Mani Rani">
-
-</div>
-
-</div>
-
+  <div class="fiducial fid-tl"></div>
+  <div class="fiducial fid-tr"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Electrical Engineering · IIT Bombay</div>
+      <h1 class="hero-name">Mani Rani</h1>
+      <div class="hero-role"><span class="typed"></span><span class="cursor">▌</span></div>
+      <p class="hero-desc">
+        Ph.D. Research Scholar building the <strong>acquisition engine of a GPS/NavIC receiver chip</strong> —
+        from algorithm to Verilog RTL to silicon. Two years designing FPGA-based encryption systems in industry
+        came first; now the work is taping out a full ASIC acquisition datapath under Prof. Sachin B. Patkar.
+      </p>
+      <div class="hero-buttons">
+        <a href="assets/Mani_Rani_Resume.pdf" class="btn" download>↓ Download Résumé</a>
+        <a href="#contact" class="btn ghost">Get in touch</a>
+        <a href="https://www.linkedin.com/in/mani-garg" target="_blank" class="btn ghost">LinkedIn ↗</a>
+      </div>
+      <div class="hero-meta">
+        <div class="item"><b>Guide</b>Prof. Sachin B. Patkar</div>
+        <div class="item"><b>Program</b>Ph.D., Integrated Circuits &amp; Systems</div>
+        <div class="item"><b>Expected</b>2028</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="chip-frame">
+        <div class="photo-box"><img src="assets/profile.jpg" alt="Mani Rani"></div>
+        <div class="chip-label"><span class="id">24D0532</span> · EE · REV 2026.07</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- ========================= -->
-<!-- STATS -->
-<!-- ========================= -->
-
-<section class="stats">
-
-<div class="stat-box">
-
-<h2 class="counter" data-target="6">0</h2>
-
-<h4>
-
-Research Projects
-
-</h4>
-
-</div>
-
-<div class="stat-box">
-
-<h2 class="counter" data-target="2">0</h2>
-
-<h4>
-
-Years Industry Experience
-
-</h4>
-
-</div>
-
-<div class="stat-box">
-
-<h2 class="counter" data-target="10">0</h2>
-
-<h4>
-
-EDA Tools
-
-</h4>
-
-</div>
-
-<div class="stat-box">
-
-<h2 class="counter" data-target="9">0</h2>
-
-<h4>
-
-Current CPI
-
-</h4>
-
-</div>
-
+<!-- ============ STATS ============ -->
+<section class="stats-strip">
+  <div class="stat-box"><div class="stat-num">06</div><div class="stat-label">Research &amp; Course Projects</div></div>
+  <div class="stat-box"><div class="stat-num">02</div><div class="stat-label">Years, Industry (RTL Design)</div></div>
+  <div class="stat-box"><div class="stat-num">10+</div><div class="stat-label">EDA &amp; Simulation Tools</div></div>
+  <div class="stat-box"><div class="stat-num">9.34</div><div class="stat-label">Current CPI, Ph.D.</div></div>
 </section>
 
-
-<!-- ========================= -->
-<!-- ABOUT -->
-<!-- ========================= -->
-
-<section id="about" class="about">
-
-<div class="section-title">
-
-<h2>
-
-About Me
-
-</h2>
-
-<p>
-
-Know more about me
-
-</p>
-
-</div>
-
-<div class="about-container">
-
-<div class="about-text">
-
-<h3>
-
-Who am I?
-
-</h3>
-
-<p>
-
-I am a Ph.D. Research Scholar at the Department of Electrical Engineering,
-Indian Institute of Technology Bombay.
-
-My research focuses on designing high-performance and low-power hardware architectures for GPS/NavIC acquisition receivers targeting ASIC implementation.
-
-I have industrial experience as an RTL Design Engineer at Chipspirit Technologies where I worked on FPGA based Encryption and Decryption projects.
-
-My expertise spans RTL Design, FPGA Prototyping, Physical Design, ASIC Implementation, Verification and Hardware Validation.
-
-</p>
-
-<div class="about-grid">
-
-<div>
-
-<h4>
-
-Education
-
-</h4>
-
-<p>
-
-Ph.D. — IIT Bombay
-
-</p>
-
-</div>
-
-<div>
-
-<h4>
-
-Specialization
-
-</h4>
-
-<p>
-
-Integrated Circuits & Systems
-
-</p>
-
-</div>
-
-<div>
-
-<h4>
-
-Experience
-
-</h4>
-
-<p>
-
-RTL Design Engineer
-
-</p>
-
-</div>
-
-<div>
-
-<h4>
-
-Current CPI
-
-</h4>
-
-<p>
-
-9.34
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="about-image">
-
-<img src="assets/profile.jpg">
-
-</div>
-
-</div>
-
-</section>
-  <!-- ================================================= -->
-<!-- RESEARCH -->
-<!-- ================================================= -->
-
-<section class="research section" id="research">
-
-<div class="container">
-
-<div class="section-heading">
-
-<h5>Research</h5>
-
-<h2>Current Research Work</h2>
-
-<p>
-Focused on high-performance and low-power ASIC implementation
-for satellite navigation receivers.
-</p>
-
-</div>
-
-<div class="research-card glass">
-
-<div class="research-left">
-
-<span class="badge">
-
-Featured Research
-
-</span>
-
-<h2>
-
-Design of Acquisition Module for the NavIC Receiver Chip
-
-</h2>
-
-<p>
-
-My research focuses on designing a complete ASIC implementation of the
-GPS/NavIC acquisition engine using Verilog RTL.
-
-The architecture performs efficient satellite acquisition through
-PRN code generation,
-carrier generation,
-code phase search,
-Doppler search,
-MAC based correlation,
-and peak detection.
-
-The complete design has been implemented,
-verified,
-prototyped on FPGA,
-and synthesized using Cadence Genus and Innovus.
-
-</p>
-
-<div class="tech-stack">
-
-<span>Verilog RTL</span>
-
-<span>ASIC</span>
-
-<span>Cadence Genus</span>
-
-<span>Innovus</span>
-
-<span>PYNQ-Z2</span>
-
-<span>MATLAB</span>
-
-<span>GPS</span>
-
-<span>NavIC</span>
-
-</div>
-
-</div>
-
-<div class="research-right">
-
-<div class="flow-box">
-
-<div>Algorithm</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>RTL</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>Simulation</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>FPGA</div>
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<div>ASIC</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">§01</span><h2 class="section-title">About</h2></div>
+    <div class="about-grid">
+      <div class="about-text" data-reveal>
+        <p>I'm a Ph.D. Research Scholar in the Department of Electrical Engineering at <strong>IIT Bombay</strong>,
+        working on high-performance, low-power hardware for <strong>GPS/NavIC acquisition receivers</strong> —
+        the piece of a satellite navigation chip that finds and locks onto a signal before anything else can happen.</p>
+        <p>Before this, I spent two years as an <strong>RTL Design Engineer at Chipspirit Technologies</strong>,
+        building FPGA-based encryption and decryption systems — writing synthesizable Verilog, generating
+        bitstreams in Vivado, and validating hardware on the bench with ILA/VIO and iperf3.</p>
+        <p>My work sits across the full stack of chip design: <strong>RTL, verification, FPGA prototyping,
+        physical design, and ASIC implementation</strong> in Cadence Genus and Innovus — carrying an idea from
+        an algorithm on paper to a synthesized, timing-closed layout.</p>
+      </div>
+      <div class="fact-table" data-reveal>
+        <div class="fact-row"><span>Institute</span><span>IIT Bombay</span></div>
+        <div class="fact-row"><span>Department</span><span>Electrical Engineering</span></div>
+        <div class="fact-row"><span>Specialization</span><span>Integrated Circuits &amp; Systems</span></div>
+        <div class="fact-row"><span>Prior Role</span><span>RTL Design Engineer</span></div>
+        <div class="fact-row"><span>Current CPI</span><span>9.34</span></div>
+        <div class="fact-row"><span>Roll No.</span><span>24D0532</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- ================================================= -->
-<!-- EXPERIENCE -->
-<!-- ================================================= -->
-
-<section class="experience section" id="experience">
-
-<div class="container">
-
-<div class="section-heading">
-
-<h5>Experience</h5>
-
-<h2>Professional Journey</h2>
-
-</div>
-
-<div class="timeline">
-
-<!-- ITEM -->
-
-<div class="timeline-item">
-
-<div class="timeline-icon">
-
-<i class="fa-solid fa-briefcase"></i>
-
-</div>
-
-<div class="timeline-content">
-
-<span>
-
-Aug 2022 — Aug 2024
-
-</span>
-
-<h2>
-
-RTL Design Engineer
-
-</h2>
-
-<h3>
-
-Chipspirit Technologies • Bengaluru
-
-</h3>
-
-<ul>
-
-<li>
-
-Worked on FPGA based Encryption & Decryption projects.
-
-</li>
-
-<li>
-
-Developed synthesizable Verilog RTL.
-
-</li>
-
-<li>
-
-Generated bitstreams using Xilinx Vivado.
-
-</li>
-
-<li>
-
-Performed hardware validation on KU11P FPGA.
-
-</li>
-
-<li>
-
-Debugged designs using ILA & VIO.
-
-</li>
-
-<li>
-
-Measured throughput using iperf3.
-
-</li>
-
-<li>
-
-Simulation, synthesis and timing verification.
-
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-
-<!-- ITEM -->
-
-<div class="timeline-item">
-
-<div class="timeline-icon">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-</div>
-
-<div class="timeline-content">
-
-<span>
-
-June 2025 — Present
-
-</span>
-
-<h2>
-
-Ph.D. Research Scholar
-
-</h2>
-
-<h3>
-
-Department of Electrical Engineering
-
-IIT Bombay
-
-</h3>
-
-<ul>
-
-<li>
-
-ASIC Design
-
-</li>
-
-<li>
-
-RTL Design
-
-</li>
-
-<li>
-
-FPGA Prototyping
-
-</li>
-
-<li>
-
-Physical Design
-
-</li>
-
-<li>
-
-Digital VLSI
-
-</li>
-
-<li>
-
-GPS/NavIC Receiver Architecture
-
-</li>
-
-<li>
-
-Cadence Genus & Innovus
-
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ============ RESEARCH ============ -->
+<section class="block" id="research">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">§02</span><h2 class="section-title">Research</h2></div>
+    <p class="section-sub">Since June 2025 — the design of a full acquisition module for a GPS/NavIC receiver chip.</p>
+
+    <div class="research-panel" data-reveal>
+      <div>
+        <h3>Design of Acquisition Module for the NavIC Receiver Chip</h3>
+        <p>An FSM-based serial-search GPS/NavIC acquisition architecture in Verilog RTL, covering PRN code
+        phases and Doppler bins — the search that lets a receiver find a satellite signal before it can track it.</p>
+        <p>The datapath includes PRN generation via G1/G2 LFSRs, code-phase rotation, multi-bin Doppler search,
+        MAC-based correlation, and a fixed-point carrier NCO with 0.5° resolution sine/cosine LUTs for carrier
+        generation. Verified through RTL simulation and FPGA prototyping on a PYNQ-Z2 with real input data, then
+        carried to full ASIC implementation in Cadence Genus and Innovus.</p>
+        <div class="metric-line">
+          <div class="m"><b>0</b>DRC Violations</div>
+          <div class="m"><b>3.05 mW</b>Post-Layout Power</div>
+          <div class="m"><b>0.5°</b>NCO Resolution</div>
+          <div class="m"><b>Closed</b>Timing</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Verilog RTL</span><span class="tag">Cadence Genus</span>
+          <span class="tag">Cadence Innovus</span><span class="tag">PYNQ-Z2</span>
+          <span class="tag">MATLAB</span><span class="tag">GPS / NavIC</span>
+        </div>
+      </div>
+      <div>
+        <svg class="diagram" viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+          <g class="flow-node"><rect x="130" y="10" width="120" height="38" rx="2"/><text x="190" y="34" text-anchor="middle">ALGORITHM</text></g>
+          <path class="flow-path" d="M190,48 V78"/>
+          <g class="flow-node"><rect x="130" y="78" width="120" height="38" rx="2"/><text x="190" y="102" text-anchor="middle">VERILOG RTL</text></g>
+          <path class="flow-path" d="M190,116 V146"/>
+          <g class="flow-node"><rect x="130" y="146" width="120" height="38" rx="2"/><text x="190" y="170" text-anchor="middle">SIMULATION</text></g>
+          <path class="flow-path" d="M190,184 V214"/>
+          <g class="flow-node"><rect x="130" y="214" width="120" height="38" rx="2"/><text x="190" y="238" text-anchor="middle">FPGA (PYNQ-Z2)</text></g>
+          <path class="flow-path" d="M190,252 V282"/>
+          <g class="flow-node"><rect x="130" y="252" width="120" height="38" rx="2"/><text x="190" y="276" text-anchor="middle">ASIC (GENUS/INNOVUS)</text></g>
+          <circle class="pulse" r="4">
+            <animateMotion dur="3.2s" repeatCount="indefinite"
+              path="M190,29 V271" />
+          </circle>
+        </svg>
+      </div>
+    </div>
+
+    <div class="note-list" style="margin-top:50px;" data-reveal>
+      <div class="note"><span class="tag2">SELECTED</span><p><strong>ARC SoC-B team, IIT Bombay</strong> — one of 8 members chosen for the VSI / ChipIN Centre / C-DAC <strong>1-TOPS (1 TapeOut Per Student)</strong> program, one of 37 teams picked nationwide from 550+ proposals and 3,739 students.</p></div>
+      <div class="note"><span class="tag2">COURSEWORK</span><p>Secured an <strong>AA grade</strong> in Hardware Description Language (HDL).</p></div>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- ================================================= -->
-<!-- EDUCATION -->
-<!-- ================================================= -->
-
-<section class="education section" id="education">
-
-<div class="container">
-
-<div class="section-heading">
-
-<h5>Education</h5>
-
-<h2>Academic Background</h2>
-
-</div>
-
-<div class="education-grid">
-
-<div class="edu-card glass">
-
-<div class="edu-year">
-
-2024 - Present
-
-</div>
-
-<h2>
-
-Ph.D.
-
-</h2>
-
-<h3>
-
-Indian Institute of Technology Bombay
-
-</h3>
-
-<p>
-
-Department of Electrical Engineering
-
-</p>
-
-<p>
-
-Integrated Circuits & Systems
-
-</p>
-
-<h4>
-
-CPI : 9.34
-
-</h4>
-
-</div>
-
-
-
-<div class="edu-card glass">
-
-<div class="edu-year">
-
-2020 - 2022
-
-</div>
-
-<h2>
-
-M.Tech
-
-</h2>
-
-<h3>
-
-Indian Institute of Technology Jodhpur
-
-</h3>
-
-<p>
-
-Electrical Engineering
-
-</p>
-
-<h4>
-
-CGPA : 7.78
-
-</h4>
-
-</div>
-
-
-
-<div class="edu-card glass">
-
-<div class="edu-year">
-
-2014 - 2018
-
-</div>
-
-<h2>
-
-B.Tech
-
-</h2>
-
-<h3>
-
-Sant Longowal Institute of Engineering & Technology
-
-</h3>
-
-<p>
-
-Instrumentation & Control Engineering
-
-</p>
-
-<h4>
-
-CGPA : 8.52
-
-</h4>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ============ EXPERIENCE ============ -->
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">§03</span><h2 class="section-title">Experience</h2></div>
+    <div class="timeline">
+      <div class="tl-item" data-reveal>
+        <div class="tl-date">JUN 2025 —<br>PRESENT</div>
+        <div>
+          <div class="tl-role">Ph.D. Research Scholar</div>
+          <div class="tl-org">Dept. of Electrical Engineering, IIT Bombay</div>
+          <ul>
+            <li>ASIC design and RTL implementation for GPS/NavIC receiver acquisition</li>
+            <li>Physical design and digital VLSI flow in Cadence Genus &amp; Innovus</li>
+            <li>FPGA prototyping and hardware validation on PYNQ-Z2</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item" data-reveal>
+        <div class="tl-date">AUG 2022 —<br>AUG 2024</div>
+        <div>
+          <div class="tl-role">RTL Design Engineer</div>
+          <div class="tl-org">Chipspirit Technologies, Bengaluru</div>
+          <ul>
+            <li>Built FPGA-based encryption &amp; decryption projects; wrote synthesizable Verilog RTL</li>
+            <li>Generated bitstreams and validated hardware on the KU11P FPGA board</li>
+            <li>Debugged on-hardware using ILA and VIO signals</li>
+            <li>Measured transfer throughput and losses using iperf3</li>
+            <li>Ran simulation, synthesis, and timing verification with Xilinx Vivado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-list" style="margin-top:40px;" data-reveal>
+      <div class="note"><span class="tag2">2026 — 25 </span><p>Teaching Assistant, <strong>Microprocessors</strong> — Prof. Shalabh Gupta, labs, assignments, and evaluation.</p></div>
+      <div class="note"><span class="tag2">2025 — 25</span><p>Teaching Assistant, <strong>Digital Systems</strong> — Prof. Debanjan Bhowmik, coursework and doubt-clearing.</p></div>
+      <div class="note"><span class="tag2">2024 — 24</span><p>Teaching Assistant, <strong>Maker Space Lab</strong> — lab sessions and practical evaluation.</p></div>
+    </div>
+  </div>
 </section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">§04</span><h2 class="section-title">Projects</h2></div>
+    <div class="proj-grid" data-reveal>
+      <div class="proj-card">
+        <div class="proj-index">01 · FEB 2025</div>
+        <div class="proj-title">AXI4-Lite Signal Generation for AXI-BRAM</div>
+        <div class="proj-course">VLSI Design · Prof. Laxmeesha Somappa</div>
+        <p>An AXI4-Lite master testbench for read/write to AXI-BRAM, with a 16-bit Dadda multiplier integrated
+        for testing. Validated in simulation and on PYNQ-Z2, capturing AXI transactions and multiplier output.</p>
+      </div>
+      <div class="proj-card">
+        <div class="proj-index">02 · SEP 2024</div>
+        <div class="proj-title">Standard Cell Characterization, Sky130 PDK</div>
+        <div class="proj-course">VLSI Design · Prof. Laxmeesha Somappa</div>
+        <p>DFF, NOR2, and Buffer cells built in the open-source Sky130 PDK with DRC/LVS compliance. Ngspice used
+        to extract input capacitance, static power, and dynamic power/delay across load and slew corners.</p>
+      </div>
+      <div class="proj-card">
+        <div class="proj-index">03 · NOV 2024</div>
+        <div class="proj-title">SAT-Based Fault Detection in a 74181 ALU</div>
+        <div class="proj-course">Testing &amp; Verification of VLSI Circuits · Prof. Madhav P Desai</div>
+        <p>A SAT-based testing approach to catch stuck-at faults, with CNF representations generated by a
+        custom Python program to find test patterns covering every fault.</p>
+      </div>
+      <div class="proj-card">
+        <div class="proj-index">04 · FEB 2025</div>
+        <div class="proj-title">Dual-Clock Asynchronous FIFO</div>
+        <div class="proj-course">Self Project</div>
+        <p>An async FIFO in Verilog for safe data transfer between two clock domains, using Gray-coded
+        read/write pointers to minimize multi-bit transitions and mitigate metastability.</p>
+      </div>
+      <div class="proj-card">
+        <div class="proj-index">05 · APR 2025</div>
+        <div class="proj-title">RISC-V Decode &amp; ALU Modules</div>
+        <div class="proj-course">VLSI Design Lab · Prof. Laxmeesha Somappa</div>
+        <p>Decode and ALU blocks of a RISC-V core supporting full RV32I decoding in Vivado, verified on
+        PYNQ-Z2, then carried through ASIC implementation in OpenLane with no violations.</p>
+      </div>
+      <div class="proj-card">
+        <div class="proj-index">06 · JUN 2025</div>
+        <div class="proj-title">NavIC Receiver Acquisition Module</div>
+        <div class="proj-course">Ph.D. Major Project · Prof. Sachin B. Patkar</div>
+        <p>The featured research above — full acquisition datapath from algorithm to taped-out-ready ASIC.
+        See the Research section for details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">§05</span><h2 class="section-title">Skills</h2></div>
+    <div class="skill-cols" data-reveal>
+      <div class="skill-col">
+        <h4>Languages</h4>
+        <ul><li>Verilog</li><li>VHDL</li><li>Python (scripting)</li></ul>
+      </div>
+      <div class="skill-col">
+        <h4>EDA &amp; Simulation</h4>
+        <ul>
+          <li>Cadence Genus</li><li>Cadence Innovus</li><li>Cadence Virtuoso</li>
+          <li>OpenLane</li><li>Magic Layout</li><li>Yosys / Netgen</li>
+          <li>GTKWave / Icarus Verilog</li><li>Ngspice / LTSpice</li><li>MATLAB</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h4>FPGA &amp; Platforms</h4>
+        <ul><li>Xilinx Vivado</li><li>Quartus Prime Lite</li><li>PYNQ-Z2</li><li>Docker</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">§06</span><h2 class="section-title">Education</h2></div>
+    <table class="edu-table" data-reveal>
+      <thead><tr><th>Degree</th><th>Institute</th><th>Years</th><th>Score</th></tr></thead>
+      <tbody>
+        <tr><td class="deg">Ph.D.</td><td>IIT Bombay — Electrical Engineering</td><td>2024 – Present</td><td class="score">CPI 9.34</td></tr>
+        <tr><td class="deg">M.Tech</td><td>IIT Jodhpur — Electrical Engineering</td><td>2020 – 2022</td><td class="score">CGPA 7.78</td></tr>
+        <tr><td class="deg">B.Tech</td><td>SLIET Punjab — Instrumentation &amp; Control</td><td>2014 – 2018</td><td class="score">CGPA 8.52</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="block" id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">§07</span><h2 class="section-title">Contact</h2></div>
+    <div class="contact-panel" data-reveal>
+      <div>
+        <h2>Let's talk chip design.</h2>
+        <p>Open to conversations on ASIC/RTL design, GPS/NavIC receiver architecture, and physical design —
+        or anything adjacent. The fastest way to reach me is LinkedIn.</p>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/mani-garg" target="_blank"><span class="k">LinkedIn</span> linkedin.com/in/mani-garg ↗</a>
+        <a href="assets/Mani_Rani_Resume.pdf" download><span class="k">Résumé</span> Download PDF ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Mani Rani · Electrical Engineering, IIT Bombay · Site last built July 2026</footer>
+
+<script>
+  // typing effect
+  const roles = ["ASIC Design","RTL Design","Digital VLSI","FPGA Prototyping","GPS/NavIC Receiver Architecture","Physical Design"];
+  const el = document.querySelector('.typed');
+  let ri=0, ci=0, deleting=false;
+  function tick(){
+    const word = roles[ri];
+    if(!deleting){
+      ci++;
+      el.textContent = word.slice(0,ci);
+      if(ci===word.length){ deleting=true; setTimeout(tick,1400); return; }
+    } else {
+      ci--;
+      el.textContent = word.slice(0,ci);
+      if(ci===0){ deleting=false; ri=(ri+1)%roles.length; }
+    }
+    setTimeout(tick, deleting?40:70);
+  }
+  tick();
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.15});
+  document.querySelectorAll('[data-reveal]').forEach(elm=>io.observe(elm));
+
+  // mobile menu (simple toggle fallback)
+  document.querySelector('.menu-btn').addEventListener('click', ()=>{
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display==='flex' ? 'none' : 'flex';
+    links.style.position='absolute'; links.style.top='60px'; links.style.right='20px';
+    links.style.background='var(--bg-panel)'; links.style.flexDirection='column';
+    links.style.padding='20px'; links.style.border='1px solid var(--line)';
+  });
+</script>
+
+</body>
+</html>
